@@ -15,7 +15,7 @@ using loops functions,classes, interfaces and other important pieces of the lang
 {Make a list of websites that you found helpful in this project}
 
 - [Kotlin documentation](https://kotlinlang.org/docs/home.html)
-- [Geeksforgeeks](https://www.geeksforgeeks.org/kotlin-generics/)
+- [Gzeeksforgeeks](https://www.geeksforgeeks.org/kotlin-generics/)
 
 # Future Work
 
