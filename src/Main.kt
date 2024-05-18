@@ -17,9 +17,13 @@ fun main() {
     println("You can copy a Cyborg but you can't copy a Human!")
 
     val firstCow = Cow("Vaquita", Size.medium)
+    val secondCow = Cow("vacalola", Size.big)
     val firstDog = Dog("Cliford", Size.medium)
     playWithAnimal(firstCow)
+    println()
     playWithAnimal(firstDog)
+    println()
+    playWithAnimal(secondCow)
     // Collections
     val myList = mutableListOf("Anderson", "Juan", "Pedro", "Pedro", "Alguien")
     val mySet = mutableSetOf("Hola", "Hello", "Konichigua")
@@ -37,11 +41,13 @@ fun main() {
         println("${it.key} belongs to ${it.value}")
     }
 
+    // Returning string in a List with a length minor to 5
     val filterList = myList.filter{
        it.length < 5
     }
     println(filterList )
 
+    //Returning the longest String in a List
     val longestNameInList = myList.maxBy { it.length }
     println(longestNameInList)
 }
@@ -97,17 +103,32 @@ data class Cyborg (val name: String, var age: Int){
     }
 }
 
+
+/*
+* @description: Use an Animal that implement the Animal interface
+* depending of the kind of animal the function call different method of the class
+* */
 fun playWithAnimal(animal: Animal){
     animal.walk()
     // Cannot call this method in this scope because it is not a "Cow" and it just only access
     // the properties in the contract (interface)
     //animal.eat()
     when (animal){
-        is Cow -> animal.eat()
+        is Cow -> {
+            if (animal.size == Size.big || animal.name == "lavacalola"){
+                println("Animal is as big as it could be. Its not going to eat now!")
+            }else{
+                animal.eat()
+            }
+        }
         else -> println("It is not a cow!")
     }
 }
 
+/*
+* @Description: This function recibe a collection as the parameter and depending of the type of collection play with it
+*
+* */
 fun playWithCollections  (collection: MutableCollection<String>){
    when (collection){
        is MutableList<String> -> {
